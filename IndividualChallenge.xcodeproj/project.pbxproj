@@ -9,23 +9,43 @@
 /* Begin PBXBuildFile section */
 		7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */; };
 		7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */; };
-		7E52E8B128F79D7D004598C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8B028F79D7D004598C4 /* ViewController.swift */; };
-		7E52E8B428F79D7D004598C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8B228F79D7D004598C4 /* Main.storyboard */; };
 		7E52E8B728F79D7D004598C4 /* IndividualChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8B528F79D7D004598C4 /* IndividualChallenge.xcdatamodeld */; };
 		7E52E8B928F79D7F004598C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8B828F79D7F004598C4 /* Assets.xcassets */; };
 		7E52E8BC28F79D7F004598C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */; };
+		7E52E8C828F84472004598C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8C728F84472004598C4 /* Extensions.swift */; };
+		7E52E8CC28F84842004598C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8CB28F84842004598C4 /* TabBarViewController.swift */; };
+		7E52E8CF28F854E9004598C4 /* Psychonauts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8CE28F854E9004598C4 /* Psychonauts.swift */; };
+		7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D028F855D7004598C4 /* SearchViewController.swift */; };
+		7E52E8D328F855ED004598C4 /* DigimonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */; };
+		7E52E8D528F85629004598C4 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D428F85629004598C4 /* APICaller.swift */; };
+		7E52E8DC28F977AC004598C4 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */; };
+		7E52E8E128FB411C004598C4 /* DigimonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E028FB411C004598C4 /* DigimonModel.swift */; };
+		7E52E8E328FB65CC004598C4 /* DigimonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */; };
+		7E52E8E528FB66B1004598C4 /* PageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E428FB66B1004598C4 /* PageContent.swift */; };
+		7E52E8E728FBA20D004598C4 /* DigimonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */; };
+		7E52E8E928FBC18F004598C4 /* DigimonCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E52E8A928F79D7D004598C4 /* IndividualChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndividualChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7E52E8B028F79D7D004598C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7E52E8B328F79D7D004598C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E52E8B628F79D7D004598C4 /* IndividualChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IndividualChallenge.xcdatamodel; sourceTree = "<group>"; };
 		7E52E8B828F79D7F004598C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E52E8BB28F79D7F004598C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E52E8BD28F79D7F004598C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E52E8C728F84472004598C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7E52E8CB28F84842004598C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7E52E8CE28F854E9004598C4 /* Psychonauts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Psychonauts.swift; sourceTree = "<group>"; };
+		7E52E8D028F855D7004598C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonListViewController.swift; sourceTree = "<group>"; };
+		7E52E8D428F85629004598C4 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		7E52E8E028FB411C004598C4 /* DigimonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonModel.swift; sourceTree = "<group>"; };
+		7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCardView.swift; sourceTree = "<group>"; };
+		7E52E8E428FB66B1004598C4 /* PageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContent.swift; sourceTree = "<group>"; };
+		7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonViewModel.swift; sourceTree = "<group>"; };
+		7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +78,90 @@
 		7E52E8AB28F79D7D004598C4 /* IndividualChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */,
-				7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */,
-				7E52E8B028F79D7D004598C4 /* ViewController.swift */,
-				7E52E8B228F79D7D004598C4 /* Main.storyboard */,
+				7E52E8C628F84454004598C4 /* Resources */,
+				7E52E8D828F8A2C0004598C4 /* Protocol */,
+				7E52E8CA28F8449B004598C4 /* Managers */,
+				7E52E8C328F84423004598C4 /* Model */,
+				7E52E8C528F84437004598C4 /* View */,
+				7E52E8C428F84428004598C4 /* ViewModel */,
+				7E52E8CD28F84849004598C4 /* C */,
 				7E52E8B828F79D7F004598C4 /* Assets.xcassets */,
 				7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */,
 				7E52E8BD28F79D7F004598C4 /* Info.plist */,
 				7E52E8B528F79D7D004598C4 /* IndividualChallenge.xcdatamodeld */,
 			);
 			path = IndividualChallenge;
+			sourceTree = "<group>";
+		};
+		7E52E8C328F84423004598C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8CE28F854E9004598C4 /* Psychonauts.swift */,
+				7E52E8E028FB411C004598C4 /* DigimonModel.swift */,
+				7E52E8E428FB66B1004598C4 /* PageContent.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E52E8C428F84428004598C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7E52E8C528F84437004598C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8C928F8448F004598C4 /* Core */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E52E8C628F84454004598C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */,
+				7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */,
+				7E52E8C728F84472004598C4 /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7E52E8C928F8448F004598C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */,
+				7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7E52E8CA28F8449B004598C4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8D428F85629004598C4 /* APICaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7E52E8CD28F84849004598C4 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8CB28F84842004598C4 /* TabBarViewController.swift */,
+				7E52E8D028F855D7004598C4 /* SearchViewController.swift */,
+				7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */,
+				7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		7E52E8D828F8A2C0004598C4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +174,7 @@
 				7E52E8A528F79D7D004598C4 /* Sources */,
 				7E52E8A628F79D7D004598C4 /* Frameworks */,
 				7E52E8A728F79D7D004598C4 /* Resources */,
+				7E52E90A28FD8499004598C4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -130,20 +225,51 @@
 			files = (
 				7E52E8BC28F79D7F004598C4 /* LaunchScreen.storyboard in Resources */,
 				7E52E8B928F79D7F004598C4 /* Assets.xcassets in Resources */,
-				7E52E8B428F79D7D004598C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E52E90A28FD8499004598C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E52E8A528F79D7D004598C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E52E8C828F84472004598C4 /* Extensions.swift in Sources */,
+				7E52E8E328FB65CC004598C4 /* DigimonCardView.swift in Sources */,
+				7E52E8E128FB411C004598C4 /* DigimonModel.swift in Sources */,
 				7E52E8B728F79D7D004598C4 /* IndividualChallenge.xcdatamodeld in Sources */,
-				7E52E8B128F79D7D004598C4 /* ViewController.swift in Sources */,
+				7E52E8E528FB66B1004598C4 /* PageContent.swift in Sources */,
+				7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */,
+				7E52E8D528F85629004598C4 /* APICaller.swift in Sources */,
+				7E52E8E928FBC18F004598C4 /* DigimonCardViewController.swift in Sources */,
 				7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */,
+				7E52E8D328F855ED004598C4 /* DigimonListViewController.swift in Sources */,
+				7E52E8E728FBA20D004598C4 /* DigimonViewModel.swift in Sources */,
+				7E52E8CC28F84842004598C4 /* TabBarViewController.swift in Sources */,
+				7E52E8CF28F854E9004598C4 /* Psychonauts.swift in Sources */,
+				7E52E8DC28F977AC004598C4 /* FavoriteViewController.swift in Sources */,
 				7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +277,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7E52E8B228F79D7D004598C4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7E52E8B328F79D7D004598C4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +414,6 @@
 				INFOPLIST_FILE = IndividualChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +441,6 @@
 				INFOPLIST_FILE = IndividualChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
