@@ -12,7 +12,8 @@ class TabBarViewController: UITabBarController {
     let vc1 = DigimonListViewController()
     let vc2 = SearchViewController()
     let vc3 = FavoriteViewController()
-    let vc4 = DigimonCardViewController()
+//    let vc4 = DigimonCardViewController()
+    let vc4 = ViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,13 @@ class TabBarViewController: UITabBarController {
         let nav1 = UINavigationController(rootViewController: vc1)
         let nav2 = UINavigationController(rootViewController: vc2)
         let nav3 = UINavigationController(rootViewController: vc3)
+
         let nav4 = UINavigationController(rootViewController: vc4)
 
         nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         nav3.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 1)
+
         nav4.tabBarItem = UITabBarItem(title: "Teste", image: UIImage(systemName: "questionmark"), tag: 1)
 
         nav1.navigationBar.prefersLargeTitles = true

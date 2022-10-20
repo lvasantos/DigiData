@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Digimon
-struct Digimon: Codable {
+struct DigimonContent: Codable {
     let id: Int
     let name: String
     let xAntibody: Bool

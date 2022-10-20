@@ -12,7 +12,6 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-
         view.addGradientWithColor(color: .orange)
     }
 }

@@ -16,6 +16,33 @@ import Foundation
 // Singleton vs Service Locator
 
 class DigimonViewModel {
+    let mockDigimonContent: DigimonContent = DigimonContent(id: 0,
+                                                            name: "Not found",
+                                                            xAntibody: false,
+                                                            images: [],
+                                                            levels: [],
+                                                            types: [],
+                                                            attributes: [],
+                                                            fields: [],
+                                                            releaseDate: "xx",
+                                                            descriptions: [],
+                                                            skills: [],
+                                                            priorEvolutions: [],
+                                                            nextEvolutions: []
+    )
+
+    let mockDigimonPage: PageInfo = PageInfo(content: [ContentElement(id: 000, name: "Not Found", href: "")],
+                                             pageable:
+                                                Pageable(
+                                                currentPage: 0,
+                                                elementsOnPage: 0,
+                                                totalElements: 0,
+                                                totalPages: 0,
+                                                previousPage: "",
+                                                nextPage: ""
+                                             )
+    )
+    let API = APICaller()
     // MARK: Pageable
     func goToNextPage(_ content: PageInfo) async -> PageInfo {
         let nextPage: String = content.pageable.nextPage
@@ -30,17 +57,7 @@ class DigimonViewModel {
         } catch {
             print(error)
         }
-        return PageInfo(
-            content: [ContentElement(id: 000, name: "Not Found", href: "")],
-            pageable: Pageable(
-                currentPage: 0,
-                elementsOnPage: 0,
-                totalElements: 0,
-                totalPages: 0,
-                previousPage: "",
-                nextPage: ""
-            )
-        )
+        return mockDigimonPage
 
     }
 
@@ -48,7 +65,7 @@ class DigimonViewModel {
         let previousPage: String = content.pageable.previousPage
         do {
             if previousPage == "" {
-                print("Voltar que n tem pagina anterior, oras.")
+                print("Voltar para onde que n tem pagina anterior, oras.")
 
             } else {
                 let (previousPageData, _) = try await URLSession.shared.data(
@@ -62,57 +79,68 @@ class DigimonViewModel {
         } catch {
             print(error)
         }
-        return PageInfo(
-            content: [ContentElement(id: 000, name: "Not Found", href: "")],
-            pageable: Pageable(
-                currentPage: 0,
-                elementsOnPage: 0,
-                totalElements: 0,
-                totalPages: 0,
-                previousPage: "",
-                nextPage: ""
-            )
-        )
+        return mockDigimonPage
+    }
+    // MARK: DigimonsPerPage
+    func getDigimonLinkPerPage(_ content: PageInfo) async -> [String] {
+        var digimonLink: [String] = []
+        content.content.forEach { digimonContent in
+            digimonLink.append(digimonContent.href)
+        }
+
+        return digimonLink
     }
 
-// MARK: DigimonCentered
-    func getDigimonDataByID (_ digimonID: Int) async -> Digimon {
+    // MARK: DigimonCentered
+
+    // 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
+    func getDigimonWithURL(_ url: URL) async {
+//        do {
+            //            guard let firstPageContent = await API.fetchdigimonFirstEntry()?.content else { return }
+            //            print(firstPageContent)
+
+//        } catch {
+//            print(error)
+//        }
+
+    }
+
+    func searchDigimonByID (_ digimonID: Int) async -> DigimonContent {
         do {
             let endpoint = "digimon-api.com/api/v1/digimon/\(digimonID)"
             let (data, _) = try await URLSession.shared.data(
                 from: URL(string: "https://www.\(endpoint)")!)
-            let decodedData = try JSONDecoder().decode(Digimon.self, from: data)
+            let decodedData = try JSONDecoder().decode(DigimonContent.self, from: data)
             return decodedData
         } catch {
             print(error)
         }
-        return Digimon(
-            id: 0,
-            name: "Not found",
-            xAntibody: false,
-            images: [],
-            levels: [],
-            types: [],
-            attributes: [],
-            fields: [],
-            releaseDate: "xx",
-            descriptions: [],
-            skills: [],
-            priorEvolutions: [],
-            nextEvolutions: []
-        )
+        return mockDigimonContent
     }
 
-    func getDigimonDataByName (_ digimonName: String) async {
+    func searchDigimonByName (_ digimonName: String) async -> DigimonContent {
         do {
             let endpoint = "digimon-api.com/api/v1/digimon/\(digimonName)"
             let (data, _) = try await URLSession.shared.data(
                 from: URL(string: "https://www.\(endpoint)")!)
-            let decodedData = try JSONDecoder().decode(Digimon.self, from: data)
-            print(decodedData)
+            let decodedData = try JSONDecoder().decode(DigimonContent.self, from: data)
+            return decodedData
         } catch {
             print(error)
         }
+        return mockDigimonContent
+    }
+
+    func getDigimonLevel(_ level: [Level]) -> String {
+        var string = ""
+        if level.isEmpty {
+            return "No level information found"
+        }
+        level.forEach { element in
+            string.append(element.level)
+            string.append("\n")
+        }
+        return string
     }
 }
 

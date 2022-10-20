@@ -8,32 +8,44 @@
 import Foundation
 
 class APICaller {
+    private let url = "digi-api.com/api/v1/digimon/"
 
-    static func fetchdigimonFirstEntry() async -> PageInfo? {
+    func digimonFirstEntry(completionHandler: @escaping (PageInfo) -> Void) {
+        let task = URLSession.shared.dataTask(with: URL(string: "https:www.\(url)")!, completionHandler: { (data, _, error) in
+            if let error = error {
+                print("⚠️ Error with fetching  data: \(error)")
+                return
+            }
+            if let data = data,
+               let userData = try? JSONDecoder().decode(PageInfo.self, from: data) {
+                completionHandler(userData)
+            }
+        })
+        task.resume()
+    }
+
+    func fetchdigimonFirstEntry() async -> PageInfo? {
         do {
-            let endpoint = "digi-api.com/api/v1/digimon"
+            let endpoint = url
             let (data, _) = try await URLSession.shared.data(from: URL(string: "https:www.\(endpoint)")!)
             let decodedData = try JSONDecoder().decode(PageInfo.self, from: data)
-
             return decodedData
-
         } catch {
             print(error.localizedDescription)
         }
         return nil
     }
 
-    static func fetchRandomDigimon() async  -> Digimon? {
+    func fetchRandomDigimon() async  -> DigimonContent? {
         do {
-
-            let random = Int.random(in: 1..<600)
-            let endpoint = "digi-api.com/api/v1/digimon/\(random)"
+            let random = String(Int.random(in: 1..<600))
+            let url = url
+            let endpoint = url.appending(random)
             let (data, _) = try await URLSession.shared.data(
                 from: URL(
-                string: "https://www.\(endpoint)")!)
-            let digimonDecoded = try JSONDecoder().decode(Digimon.self, from: data)
+                    string: "https://www.\(endpoint)")!)
+            let digimonDecoded = try JSONDecoder().decode(DigimonContent.self, from: data)
             return digimonDecoded
-
         } catch {
             print(error)
         }
