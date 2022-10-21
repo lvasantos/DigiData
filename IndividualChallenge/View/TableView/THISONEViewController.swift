@@ -19,8 +19,6 @@ class ViewController: UIViewController {
         title = "CHRIST"
         infos = fetchDummyData()
         configureTableView()
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-
     }
 
     func configureTableView() {
@@ -79,8 +77,8 @@ extension ViewController {
 
 // n me permite acessar method, why? whyyy?
 extension UITableView {
-    func dequeue<T: UITableViewCell>(withIdentifier id: String, for ip: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withIdentifier: id, for: ip) as? T else {
+    func dequeue<T: UITableViewCell> (withIdentifier id: String, for indP: IndexPath) -> T {
+        guard let cell = self.dequeueReusableCell(withIdentifier: id, for: indP) as? T else {
             fatalError("could not cast cell")
         }
         return cell

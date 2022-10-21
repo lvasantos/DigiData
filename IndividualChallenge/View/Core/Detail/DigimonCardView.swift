@@ -44,7 +44,8 @@ class DigimonCardView: UIView {
     let favoriteButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.borderedProminent()
-        configuration.title = "Next"
+//        configuration.title = "Next"
+        configuration.image = UIImage(systemName: "shuffle")
         configuration.baseForegroundColor = .white
         configuration.baseBackgroundColor = UIColor.systemPink
 
@@ -55,37 +56,9 @@ class DigimonCardView: UIView {
         return button
     }()
 
-    let descriptionButton: UIButton = {
-        let button = UIButton()
-        var configuration = UIButton.Configuration.borderedProminent()
-//        configuration.title = "desc"
-        configuration.baseForegroundColor = .white
-        configuration.baseBackgroundColor = UIColor.systemPink
-
-        button.configuration = configuration
-        button.frame = CGRect(x: 0, y: 0, width: 50, height: 10)
-        button.setImage(UIImage(systemName: "star"), for: .normal)
-
-//        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    let skillButton: UIButton = {
-        let button = UIButton()
-        var configuration = UIButton.Configuration.borderedProminent()
-        configuration.title = "skill"
-        configuration.baseForegroundColor = .white
-        configuration.baseBackgroundColor = UIColor.systemPink
-
-        button.configuration = configuration
-//        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
     let digimonImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
-//        imageView.contentMode = .center
+        imageView.image = UIImage(named: "digimon_noImage")
         imageView.backgroundColor = .lightGray
         imageView.tintColor = .systemPink
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -122,8 +95,6 @@ class DigimonCardView: UIView {
         addSubview(cardView)
 
         buttonStack.addArrangedSubview(favoriteButton)
-        buttonStack.addArrangedSubview(descriptionButton)
-
         addSubview(buttonStack)
 
         favoriteButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
@@ -163,8 +134,7 @@ class DigimonCardView: UIView {
             buttonStack.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             buttonStack.widthAnchor.constraint(equalTo: self.widthAnchor),
 
-            favoriteButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            descriptionButton.bottomAnchor.constraint(equalTo: buttonStack.bottomAnchor)
+            favoriteButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

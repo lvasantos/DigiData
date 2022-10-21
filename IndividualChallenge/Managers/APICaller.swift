@@ -11,7 +11,8 @@ class APICaller {
     private let url = "digi-api.com/api/v1/digimon/"
 
     func digimonFirstEntry(completionHandler: @escaping (PageInfo) -> Void) {
-        let task = URLSession.shared.dataTask(with: URL(string: "https:www.\(url)")!, completionHandler: { (data, _, error) in
+        let task = URLSession.shared.dataTask(with: URL(string: "https:www.\(url)")!,
+                                              completionHandler: { (data, _, error) in
             if let error = error {
                 print("⚠️ Error with fetching  data: \(error)")
                 return

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CharacterListModel {
+struct ListModel {
     var model: DigimonContent
 
     init(with model: DigimonContent) {

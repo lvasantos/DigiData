@@ -69,3 +69,29 @@ extension CAGradientLayer {
         return gradient
     }
 }
+
+extension UIImage {
+    func scaleImage(targetSize: CGSize) -> UIImage {
+        let widthRatio = targetSize.width / self.size.width
+        let heightRatio = targetSize.height / self.size.height
+
+        var newSize: CGSize
+        if widthRatio > heightRatio {
+            newSize = CGSize(width: self.size.width * heightRatio, height: self.size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: self.size.width * widthRatio, height: self.size.height * widthRatio)
+        }
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: CGRect(origin: .zero, size: newSize))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        guard let scaledImage = newImage else {
+            return UIImage(named: "questionmark")!
+        }
+
+        return scaledImage
+    }
+
+}

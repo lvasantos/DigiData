@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CharacterListViewModel {
+struct ListViewModel {
     func getPageLink(completion: @escaping ([String]) -> Void) {
         var array: [String] = []
         APICaller().digimonFirstEntry { result in
