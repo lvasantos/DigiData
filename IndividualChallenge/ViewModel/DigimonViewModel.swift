@@ -63,19 +63,21 @@ class DigimonViewModel {
     }
     // MARK: DigimonCentered
     func getDigimonWithURL(_ urlString: String) async -> DigimonContent {
-                do {
-                    guard let URL = URL(string: urlString) else {
-                        return mockDigimonContent
-                    }
-                    let (data, _) = try await URLSession.shared.data(from: URL)
-                    let decodedData = try JSONDecoder().decode(DigimonContent.self, from: data)
-                    return decodedData
+        do {
+            guard let URL = URL(string: urlString) else {
+                return mockDigimonContent
+            }
+            let (data, _) = try await URLSession.shared.data(from: URL)
+            let decodedData = try JSONDecoder().decode(DigimonContent.self, from: data)
+            return decodedData
 
-                } catch {
-                    print(error)
-                }
+        } catch {
+            print(error)
+        }
         return mockDigimonContent
     }
+
+    // MARK: Search
     func searchDigimonByID (_ digimonID: Int) async -> DigimonContent {
         do {
             let endpoint = "digimon-api.com/api/v1/digimon/\(digimonID)"
@@ -102,13 +104,50 @@ class DigimonViewModel {
         return mockDigimonContent
     }
 
+    // MARK: Digimon attributes and infos
     func getDigimonLevel(_ level: [Level]) -> String {
-        var string = ""
+        var string = "Level:\n"
         if level.isEmpty {
-            return "No level information found"
+            return "No level information"
         }
         level.forEach { element in
             string.append(element.level)
+            string.append("\n")
+        }
+        return string
+    }
+
+    func getDigimonType(_ type: [TypeElement]) -> String {
+        var string = "Type:\n"
+        if type.isEmpty {
+            return "No type information"
+        }
+        type.forEach { element in
+            string.append(element.type)
+            string.append("\n")
+        }
+        return string
+    }
+
+    func getDigimonAttribute(_ attribute: [Attribute]) -> String {
+        var string = "Attribute:\n"
+        if attribute.isEmpty {
+            return "No attribute information"
+        }
+        attribute.forEach { element in
+            string.append(element.attribute)
+            string.append("\n")
+        }
+        return string
+    }
+
+    func getDigimonField(_ field: [Field]) -> String {
+        var string = "field:\n"
+        if field.isEmpty {
+            return "No field information"
+        }
+        field.forEach { element in
+            string.append(element.field)
             string.append("\n")
         }
         return string

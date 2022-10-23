@@ -50,6 +50,10 @@ class CollectionView: UIView {
         return collection
     }()
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = .black
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(charLabel)
@@ -63,6 +67,10 @@ class CollectionView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        addGradientWithColor(color: .white.withAlphaComponent(0.05))
     }
 
     func configListHeight() {

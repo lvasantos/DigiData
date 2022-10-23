@@ -9,19 +9,93 @@ import UIKit
 
 protocol DigimonCardViewDelegate: AnyObject {
     func changeViewContent()
+    func flipToBackView(options: UIView.AnimationOptions)
+    func flipToFrontView(options: UIView.AnimationOptions)
 }
 
 class DigimonCardView: UIView {
+    // MARK: variáveis
     weak var delegate: DigimonCardViewDelegate?
+    var flip: Bool = false
 
-    let nameLabel: UILabel = {
+    let flipCard: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.cornerRadius = 40
+        view.layer.masksToBounds = true
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    let favoriteButton: UIButton = {
+        let button = UIButton()
+        var configuration = UIButton.Configuration.borderedProminent()
+        configuration.image = UIImage(systemName: "heart")
+        configuration.baseForegroundColor = .white
+        configuration.baseBackgroundColor = UIColor.systemPink
+
+        button.configuration = configuration
+        button.layer.cornerRadius = 15
+        configuration.cornerStyle = .capsule
+        return button
+    }()
+
+    let shuffleButton: UIButton = {
+        let button = UIButton()
+        var configuration = UIButton.Configuration.borderedProminent()
+        configuration.image = UIImage(systemName: "shuffle")
+        configuration.baseForegroundColor = .white
+        configuration.baseBackgroundColor = UIColor.systemPink
+        configuration.cornerStyle = .capsule
+        button.configuration = configuration
+        button.layer.cornerRadius = 15
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    let digimonImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "digimon_noImage")
+        imageView.backgroundColor = .lightGray
+        imageView.tintColor = .systemPink
+        imageView.layer.cornerRadius = 40
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    let cardView: UIStackView = {
+        let view = UIStackView()
+        view.alignment = .bottom
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.backgroundColor = .white
+
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: -2.0)
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 5.0
+        view.layer.shadowRadius = 5.0
+        view.layer.backgroundColor = UIColor.clear.cgColor
+        view.isUserInteractionEnabled = false
+
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    let typeLabel: UILabel = {
         let  label = UILabel()
-        label.text = "Fetch digimon"
+        label.text = "type"
         label.textColor = .systemPink
         label.textAlignment = .natural
-        label.lineBreakMode = .byWordWrapping
+        label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -32,113 +106,175 @@ class DigimonCardView: UIView {
         label.text = "level"
         label.textColor = .systemPink
         label.textAlignment = .natural
-        label.lineBreakMode = .byWordWrapping
+        label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.backgroundColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    let favoriteButton: UIButton = {
-        let button = UIButton()
-        var configuration = UIButton.Configuration.borderedProminent()
-//        configuration.title = "Next"
-        configuration.image = UIImage(systemName: "shuffle")
-        configuration.baseForegroundColor = .white
-        configuration.baseBackgroundColor = UIColor.systemPink
-
-        button.configuration = configuration
-        button.layer.cornerRadius = 15
-        configuration.cornerStyle = .capsule
-//        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    let digimonImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "digimon_noImage")
-        imageView.backgroundColor = .lightGray
-        imageView.tintColor = .systemPink
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    let cardView: UIStackView = {
+    let labelStack: UIStackView = {
         let view = UIStackView()
-        view.alignment = .bottom
-        view.axis = .vertical
-        view.distribution = .equalSpacing
-        view.layer.cornerRadius = 40
-        view.layer.masksToBounds = true
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    let buttonStack: UIStackView = {
-        let view = UIStackView()
-        view.alignment = .bottom
+        view.alignment = .top
         view.axis = .horizontal
         view.distribution = .fillProportionally
         view.spacing = 5
-        view.backgroundColor = .clear
+        view.isHidden = true
+
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
+    let attibuteLabel: UILabel = {
+        let  label = UILabel()
+        label.text = "attribute"
+        label.textColor = .systemPink
+        label.textAlignment = .natural
+        label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    let fieldLabel: UILabel = {
+        let  label = UILabel()
+        label.text = "field"
+        label.textColor = .systemPink
+        label.textAlignment = .natural
+        label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    let label2Stack: UIStackView = {
+        let view = UIStackView()
+        view.alignment = .top
+        view.axis = .horizontal
+        view.distribution = .fillProportionally
+        view.spacing = 5
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    let descriptionText: UITextView = {
+        let text = UITextView()
+        text.text = "description"
+        text.textColor = .systemPink
+        text.layer.masksToBounds = true
+        text.isEditable = false
+        text.isSelectable = false
+        text.font = UIFont.preferredFont(forTextStyle: .body)
+        text.backgroundColor = .clear
+        text.isHidden = true
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+
+    // MARK: overrides, init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        cardView.addArrangedSubview(nameLabel)
-        cardView.addArrangedSubview(levelLabel)
-        cardView.addArrangedSubview(digimonImage)
-        addSubview(cardView)
 
-        buttonStack.addArrangedSubview(favoriteButton)
-        addSubview(buttonStack)
+        shuffleButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
 
-        favoriteButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        flipCard.addGestureRecognizer(tap)
+
+        setFlipCard()
+        setLabels()
+
     }
+
     override func didMoveToWindow() {
         super.didMoveToWindow()
         addGradientWithColor(color: .purple)
         setConstraints()
+        configCardHeight()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc func changeText() {
-        delegate?.changeViewContent()
+    // MARK: funções
+    func setFlipCard() {
+        flipCard.addSubview(label2Stack)
+        flipCard.addSubview(labelStack)
+        flipCard.addSubview(digimonImage)
+        flipCard.addSubview(shuffleButton)
+        flipCard.addSubview(descriptionText)
+        flipCard.addSubview(cardView)
+        addSubview(flipCard)
+    }
+
+    func setLabels() {
+        labelStack.addArrangedSubview(typeLabel)
+        labelStack.addArrangedSubview(levelLabel)
+
+        label2Stack.addArrangedSubview(attibuteLabel)
+        label2Stack.addArrangedSubview(fieldLabel)
+    }
+
+    func configCardHeight() {
+        self.flipCard.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.675).isActive = true
     }
 
     func setConstraints() {
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            cardView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
-            cardView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            cardView.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: 80),
+            self.flipCard.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.flipCard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            self.flipCard.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            self.shuffleButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                         constant: -20 ),
+            self.shuffleButton.bottomAnchor.constraint(equalTo: self.flipCard.bottomAnchor, constant: -20),
 
-            nameLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 20),
-            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: -(self.height/4)),
+            self.digimonImage.topAnchor.constraint(equalTo: self.flipCard.topAnchor),
+            self.digimonImage.leadingAnchor.constraint(equalTo: self.flipCard.leadingAnchor),
+            self.digimonImage.trailingAnchor.constraint(equalTo: self.flipCard.trailingAnchor),
+            self.digimonImage.bottomAnchor.constraint(equalTo: self.flipCard.bottomAnchor),
 
-            levelLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            levelLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 20),
+            self.labelStack.leadingAnchor.constraint(equalTo: self.flipCard.leadingAnchor, constant: 20),
+            self.labelStack.trailingAnchor.constraint(equalTo: self.flipCard.trailingAnchor),
 
-            digimonImage.widthAnchor.constraint(equalTo: cardView.widthAnchor),
-            digimonImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: (self.height/5)+20),
+            self.label2Stack.topAnchor.constraint(equalTo: self.labelStack.bottomAnchor),
+            self.label2Stack.leadingAnchor.constraint(equalTo: self.flipCard.leadingAnchor, constant: 20),
+            self.label2Stack.trailingAnchor.constraint(equalTo: self.flipCard.trailingAnchor),
+            self.label2Stack.bottomAnchor.constraint(equalTo: self.shuffleButton.topAnchor),
 
-            buttonStack.topAnchor.constraint(equalTo: cardView.bottomAnchor),
-            buttonStack.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            buttonStack.widthAnchor.constraint(equalTo: self.widthAnchor),
+            self.cardView.topAnchor.constraint(equalTo: self.flipCard.topAnchor),
+            self.cardView.leadingAnchor.constraint(equalTo: self.flipCard.leadingAnchor),
+            self.cardView.trailingAnchor.constraint(equalTo: self.flipCard.trailingAnchor),
+            self.cardView.bottomAnchor.constraint(equalTo: self.labelStack.topAnchor),
 
-            favoriteButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            self.descriptionText.leadingAnchor.constraint(equalTo: flipCard.leadingAnchor, constant: 20),
+            self.descriptionText.trailingAnchor.constraint(equalTo: flipCard.trailingAnchor, constant: -20),
+            self.descriptionText.topAnchor.constraint(equalTo: flipCard.topAnchor),
+            self.descriptionText.bottomAnchor.constraint(equalTo: cardView.bottomAnchor)
         ])
+    }
+
+    @objc func changeText() {
+        delegate?.changeViewContent()
+    }
+
+    @objc func tapped() {
+        if flip {
+            delegate?.flipToFrontView(options: .transitionFlipFromRight)
+        } else if !flip {
+            delegate?.flipToBackView(options: .transitionFlipFromLeft)
+
+        }
+
     }
 }
 
+// MARK: extensions
 extension UIImageView {
     func load(URL: URL) async {
         do {

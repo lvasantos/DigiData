@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        vc1.title = ""
+        vc1.title = "Welcome to digiData !"
         vc2.title = "Search"
         vc3.title = "Digimon"
 
@@ -51,4 +51,7 @@ class TabBarViewController: UITabBarController {
 
         vc1.delegate = vc3
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return .portrait
+        }
 }
