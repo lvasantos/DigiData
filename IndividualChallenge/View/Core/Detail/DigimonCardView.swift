@@ -77,7 +77,6 @@ class DigimonCardView: UIView {
         view.axis = .vertical
         view.distribution = .equalSpacing
         view.backgroundColor = .white
-
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: -2.0)
         view.layer.borderWidth = 0.5
@@ -86,7 +85,6 @@ class DigimonCardView: UIView {
         view.layer.shadowRadius = 5.0
         view.layer.backgroundColor = UIColor.clear.cgColor
         view.isUserInteractionEnabled = false
-
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -125,7 +123,6 @@ class DigimonCardView: UIView {
         view.distribution = .fillProportionally
         view.spacing = 5
         view.isHidden = true
-
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -193,6 +190,10 @@ class DigimonCardView: UIView {
         configLabels()
     }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func didMoveToWindow() {
         super.didMoveToWindow()
         addGradientWithColor(color: .purple)
@@ -200,12 +201,9 @@ class DigimonCardView: UIView {
         configCardHeight()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: funções
     func configFlipCard() {
+        // n precisa testar
         flipCard.addSubview(label2Stack)
         flipCard.addSubview(labelStack)
         flipCard.addSubview(digimonImage)
@@ -217,6 +215,7 @@ class DigimonCardView: UIView {
     }
 
     func configLabels() {
+        // n precisa testar
         labelStack.addArrangedSubview(typeLabel)
         labelStack.addArrangedSubview(levelLabel)
         label2Stack.addArrangedSubview(attibuteLabel)
@@ -224,6 +223,7 @@ class DigimonCardView: UIView {
     }
 
     func configCardHeight() {
+        // n precisa testar
         self.flipCard.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.675).isActive = true
     }
 
@@ -264,10 +264,11 @@ class DigimonCardView: UIView {
         ])
     }
 
+    // n testar
     @objc func changeText() {
         delegate?.changeViewContent()
     }
-
+    // n testar
     @objc func tapped() {
         if flip {
             delegate?.flipToFrontView(options: .transitionFlipFromRight)
@@ -275,7 +276,7 @@ class DigimonCardView: UIView {
             delegate?.flipToBackView(options: .transitionFlipFromLeft)
         }
     }
-
+    // n testar
     @objc func favoriteTapped() {
         if fave {
             delegate?.favoriteChecked()
@@ -286,6 +287,7 @@ class DigimonCardView: UIView {
 }
 
 // MARK: extensions
+// Teste de rota tudo mockado
 extension UIImageView {
     func load(URL: URL) async {
         do {
