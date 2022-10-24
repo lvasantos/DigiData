@@ -16,74 +16,74 @@ class DigimonCardViewController: UIViewController {
     }
 
     func changeViewContent() {
-        let text = "\(Int.random(in: 1..<100))"
+        let idDigi = Int.random(in: 1..<500)
         Task {
-            await updateText(intNum: text)
+            let data = await viewModel.searchDigimonByID(idDigi)
+            await textUpdate(using: data)
         }
     }
 
+    func textUpdate(using data: DigimonContent) async {
+        self.navigationItem.title = data.name
+
+        if !digimonView.flip { flipToBackView(options: .transitionFlipFromRight) }
+        flipToFrontView(options: .transitionCurlUp)
+
+        (digimonView.attibuteLabel.text, digimonView.levelLabel.text) = viewModel.getAttributeAndLevel(using: data)
+        (digimonView.typeLabel.text, digimonView.fieldLabel.text) = viewModel.getTypeAndField(using: data)
+        (digimonView.descriptionText.text, digimonView.fave) = viewModel.getDescriptionAndStatus(using: data)
+
+        if let imageString = data.images.first?.href {
+            if let url = URL(string: imageString) {
+                do {
+                    let (imageData, _) = try await URLSession.shared.data(from: url)
+                    digimonView.digimonImage.image = UIImage(data: imageData)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+
+        if !digimonView.fave {
+            favoriteUnchecked()
+        } else {
+            favoriteChecked()
+        }
+    }
+}
+
+extension DigimonCardViewController: CollectionViewControllerDelegate {
     func doSomething(using url: String) {
         Task {
             let num = await viewModel.getDigimonWithURL(_: url)
             self.navigationItem.title = num.name
 
-            digimonView.typeLabel.text = viewModel.getDigimonType(num.types)
-            digimonView.levelLabel.text = viewModel.getDigimonLevel(num.levels)
-            digimonView.attibuteLabel.text = viewModel.getDigimonAttribute(num.attributes)
-            digimonView.fieldLabel.text = viewModel.getDigimonField(num.fields)
-
-            if let desc = num.descriptions.first?.descriptionDescription {
-                digimonView.descriptionText.text = desc
-            }
-            guard let imageURL = num.images.first?.href else { return }
-            let url = URL(string: imageURL)
-            guard let url = url else { return }
-            let (imageData, _) = try await URLSession.shared.data(from: url)
-            digimonView.digimonImage.image = UIImage(data: imageData)
-
-            if !digimonView.flip {
-                flipToBackView(options: .transitionFlipFromRight)
-            }
-            flipToFrontView(options: .transitionCurlUp)
-
+            await textUpdate(using: num)
             self.tabBarController?.selectedIndex = 2
-        }
-    }
-
-    func updateText(intNum: String) async {
-        do {
-            let num = await viewModel.searchDigimonByID(Int(intNum)!)
-            self.navigationItem.title = num.name
-
-            digimonView.typeLabel.text = viewModel.getDigimonType(num.types)
-            digimonView.levelLabel.text = viewModel.getDigimonLevel(num.levels)
-            digimonView.attibuteLabel.text = viewModel.getDigimonAttribute(num.attributes)
-            digimonView.fieldLabel.text = viewModel.getDigimonField(num.fields)
-
-            if let desc = num.descriptions.first?.descriptionDescription {
-                digimonView.descriptionText.text = desc
-            }
-            guard let imageURL = num.images.first?.href else { return }
-            let url = URL(string: imageURL)
-            guard let url = url else { return }
-            let (imageData, _) = try await URLSession.shared.data(from: url)
-            digimonView.digimonImage.image = UIImage(data: imageData)
-
-            if !digimonView.flip { flipToBackView(options: .transitionFlipFromRight)}
-            flipToFrontView(options: .transitionCurlUp)
-
-        } catch {
-            print(error)
         }
     }
 }
 
 extension DigimonCardViewController: DigimonCardViewDelegate {
+
+    func favoriteChecked() {
+        self.digimonView.favoriteButton.configuration?.baseForegroundColor = .systemPink
+        self.digimonView.favoriteButton.configuration?.image = UIImage(systemName: "heart.fill")
+        self.digimonView.fave = !self.digimonView.fave
+    }
+
+    func favoriteUnchecked() {
+        self.digimonView.favoriteButton.configuration?.baseForegroundColor = .systemPink
+        self.digimonView.favoriteButton.configuration?.image = UIImage(systemName: "heart")
+        self.digimonView.fave = !self.digimonView.fave
+    }
+
     func flipToBackView(options: UIView.AnimationOptions) {
         UIView.transition(with: self.digimonView.flipCard,
                           duration: 0.3,
                           options: options,
                           animations: { [unowned self] in
+
             self.digimonView.digimonImage.isHidden = true
             self.digimonView.labelStack.isHidden = false
             self.digimonView.label2Stack.isHidden = false
@@ -94,10 +94,9 @@ extension DigimonCardViewController: DigimonCardViewDelegate {
     }
 
     func flipToFrontView(options: UIView.AnimationOptions) {
-        UIView.transition(with: self.digimonView.flipCard,
-                          duration: 0.3,
-                          options: options,
-                          animations: { [unowned self] in
+        UIView.transition(with: self.digimonView.flipCard, duration: 0.3,
+                          options: options, animations: { [unowned self] in
+
             self.digimonView.digimonImage.isHidden = false
             self.digimonView.labelStack.isHidden = true
             self.digimonView.label2Stack.isHidden = true
@@ -106,10 +105,6 @@ extension DigimonCardViewController: DigimonCardViewDelegate {
             self.digimonView.flip = !self.digimonView.flip
         })
     }
-
-}
-
-extension DigimonCardViewController: CollectionViewControllerDelegate {
 
 }
 

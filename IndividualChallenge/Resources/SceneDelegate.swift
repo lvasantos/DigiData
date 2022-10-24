@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.windowScene = windowScene
             window?.rootViewController = TabBarViewController()
             window?.makeKeyAndVisible()
+            window?.overrideUserInterfaceStyle = .dark
         }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

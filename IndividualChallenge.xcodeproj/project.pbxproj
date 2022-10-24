@@ -30,6 +30,7 @@
 		7E52E94629011E4A004598C4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94529011E4A004598C4 /* MockModel.swift */; };
 		7E52E94829015B52004598C4 /* THISONEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94729015B52004598C4 /* THISONEViewController.swift */; };
 		7E52E94B290172A2004598C4 /* IndividualChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */; };
+		7E52E9502905E1C3004598C4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94F2905E1C3004598C4 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		7E52E94529011E4A004598C4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 		7E52E94729015B52004598C4 /* THISONEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THISONEViewController.swift; sourceTree = "<group>"; };
 		7E52E94A290172A2004598C4 /* IndividualChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IndividualChallenge.xcdatamodel; sourceTree = "<group>"; };
+		7E52E94F2905E1C3004598C4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7E52E9512906C0C8004598C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 				7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */,
 				7E52E8BD28F79D7F004598C4 /* Info.plist */,
 				7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */,
+				7E52E9512906C0C8004598C4 /* README.md */,
 			);
 			path = IndividualChallenge;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				7E52E8D028F855D7004598C4 /* SearchViewController.swift */,
+				7E52E94F2905E1C3004598C4 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */,
 				7E52E94B290172A2004598C4 /* IndividualChallenge.xcdatamodeld in Sources */,
 				7E52E93329001596004598C4 /* CollectionView.swift in Sources */,
+				7E52E9502905E1C3004598C4 /* SearchView.swift in Sources */,
 				7E52E94029010BA9004598C4 /* TableView.swift in Sources */,
 				7E52E8D528F85629004598C4 /* APICaller.swift in Sources */,
 				7E52E944290119C4004598C4 /* InfoCell.swift in Sources */,

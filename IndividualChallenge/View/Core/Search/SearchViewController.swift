@@ -13,5 +13,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addGradientWithColor(color: .systemCyan)
+        // 🚧 Trabalhando nisso. N mexa.
     }
 }

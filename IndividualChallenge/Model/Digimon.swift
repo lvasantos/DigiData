@@ -15,6 +15,7 @@ struct DigimonContent: Codable {
     let skills: [Skill]
     let priorEvolutions: [Evolution]
     let nextEvolutions: [Evolution]
+    var isFavorite: Bool? = false
 }
 
 // MARK: - Attribute
@@ -25,11 +26,11 @@ struct Attribute: Codable {
 
 // MARK: - Description
 struct Description: Codable {
-    let origin, language, descriptionDescription: String
+    let origin, language, digiDescription: String
 
     enum CodingKeys: String, CodingKey {
         case origin, language
-        case descriptionDescription = "description"
+        case digiDescription = "description"
     }
 }
 

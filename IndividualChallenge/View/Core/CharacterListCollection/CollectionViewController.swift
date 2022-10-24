@@ -13,16 +13,17 @@ protocol CollectionViewControllerDelegate: AnyObject {
 }
 
 class CollectionViewController: UIViewController {
+
+    let listOfCollections: CollectionView = CollectionView()
+    let viewModel: ListViewModel = ListViewModel()
+    weak var delegate: CollectionViewControllerDelegate?
+
     var digiData: [String] = []
     var favorites: [String] = ["https://digimon-api.com/api/v1/digimon/Palmon",
                                "https://digimon-api.com/api/v1/digimon/Impmon",
                                "https://digimon-api.com/api/v1/digimon/Lopmon",
                                "https://digimon-api.com/api/v1/digimon/Dianamon",
                                "https://digimon-api.com/api/v1/digimon/Dogmon"]
-
-    let listOfCollections: CollectionView = CollectionView()
-    let viewModel: ListViewModel = ListViewModel()
-    weak var delegate: CollectionViewControllerDelegate?
 
     override func loadView() {
         view = listOfCollections
@@ -60,10 +61,7 @@ extension CollectionViewController:
                                                           for: indexPath)
 
             let url = digiData[indexPath.row]
-
-            guard let charCell = cell as? CollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            guard let charCell = cell as? CollectionViewCell else { return UICollectionViewCell() }
             charCell.configure(digiData: url)
             return cell
 
@@ -72,9 +70,7 @@ extension CollectionViewController:
                                                           for: indexPath)
             let url = favorites[indexPath.row]
 
-            guard let favoriteCell = cell as? CollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            guard let favoriteCell = cell as? CollectionViewCell else { return UICollectionViewCell() }
             favoriteCell.configure(digiData: url)
             return favoriteCell
         }
@@ -94,8 +90,7 @@ extension CollectionViewController:
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int
-    ) -> CGFloat {
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
 

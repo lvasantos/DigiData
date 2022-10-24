@@ -25,6 +25,21 @@ class APICaller {
         task.resume()
     }
 
+    func digimonEntry(pageURL: URL, completionHandler: @escaping ([String]) -> Void) {
+        var array: [String] = []
+        let task = URLSession.shared.dataTask(with: pageURL,
+                                              completionHandler: { (data, _, _) in
+            if let data = data,
+               let pageData = try? JSONDecoder().decode(PageInfo.self, from: data) {
+                pageData.content.forEach { element in
+                    array.append(element.href)
+                }
+                completionHandler(array)
+            }
+        })
+        task.resume()
+    }
+
     func fetchdigimonFirstEntry() async -> PageInfo? {
         do {
             let endpoint = url

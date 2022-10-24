@@ -11,12 +11,15 @@ protocol DigimonCardViewDelegate: AnyObject {
     func changeViewContent()
     func flipToBackView(options: UIView.AnimationOptions)
     func flipToFrontView(options: UIView.AnimationOptions)
+    func favoriteChecked()
+    func favoriteUnchecked()
 }
 
 class DigimonCardView: UIView {
     // MARK: variáveis
     weak var delegate: DigimonCardViewDelegate?
     var flip: Bool = false
+    var fave: Bool = false
 
     let flipCard: UIView = {
         let view = UIView()
@@ -25,7 +28,6 @@ class DigimonCardView: UIView {
         view.layer.borderColor = UIColor.gray.cgColor
         view.layer.cornerRadius = 40
         view.layer.masksToBounds = true
-
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,12 +36,14 @@ class DigimonCardView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.borderedProminent()
         configuration.image = UIImage(systemName: "heart")
-        configuration.baseForegroundColor = .white
-        configuration.baseBackgroundColor = UIColor.systemPink
-
-        button.configuration = configuration
-        button.layer.cornerRadius = 15
+        configuration.baseForegroundColor = .systemPink
+        configuration.baseBackgroundColor = UIColor.white
         configuration.cornerStyle = .capsule
+        button.configuration = configuration
+        button.layer.borderColor = UIColor.systemPink.cgColor
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = 18
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -180,15 +184,13 @@ class DigimonCardView: UIView {
     // MARK: overrides, init
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         shuffleButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
         flipCard.addGestureRecognizer(tap)
-
-        setFlipCard()
-        setLabels()
-
+        configFlipCard()
+        configLabels()
     }
 
     override func didMoveToWindow() {
@@ -203,20 +205,20 @@ class DigimonCardView: UIView {
     }
 
     // MARK: funções
-    func setFlipCard() {
+    func configFlipCard() {
         flipCard.addSubview(label2Stack)
         flipCard.addSubview(labelStack)
         flipCard.addSubview(digimonImage)
         flipCard.addSubview(shuffleButton)
+        flipCard.addSubview(favoriteButton)
         flipCard.addSubview(descriptionText)
         flipCard.addSubview(cardView)
         addSubview(flipCard)
     }
 
-    func setLabels() {
+    func configLabels() {
         labelStack.addArrangedSubview(typeLabel)
         labelStack.addArrangedSubview(levelLabel)
-
         label2Stack.addArrangedSubview(attibuteLabel)
         label2Stack.addArrangedSubview(fieldLabel)
     }
@@ -233,6 +235,9 @@ class DigimonCardView: UIView {
             self.shuffleButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                          constant: -20 ),
             self.shuffleButton.bottomAnchor.constraint(equalTo: self.flipCard.bottomAnchor, constant: -20),
+
+            self.favoriteButton.trailingAnchor.constraint(equalTo: self.shuffleButton.leadingAnchor, constant: -20),
+            self.favoriteButton.bottomAnchor.constraint(equalTo: self.flipCard.bottomAnchor, constant: -20),
 
             self.digimonImage.topAnchor.constraint(equalTo: self.flipCard.topAnchor),
             self.digimonImage.leadingAnchor.constraint(equalTo: self.flipCard.leadingAnchor),
@@ -266,11 +271,17 @@ class DigimonCardView: UIView {
     @objc func tapped() {
         if flip {
             delegate?.flipToFrontView(options: .transitionFlipFromRight)
-        } else if !flip {
+        } else {
             delegate?.flipToBackView(options: .transitionFlipFromLeft)
-
         }
+    }
 
+    @objc func favoriteTapped() {
+        if fave {
+            delegate?.favoriteChecked()
+        } else {
+            delegate?.favoriteUnchecked()
+        }
     }
 }
 
