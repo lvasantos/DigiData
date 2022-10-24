@@ -45,6 +45,16 @@ extension UIView {
         gradient.frame = self.bounds
         self.layer.insertSublayer(gradient, at: 0)
     }
+
+    func pin(to superview: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: superview.topAnchor),
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+        ])
+    }
 }
 
 // chamar como:
@@ -58,4 +68,30 @@ extension CAGradientLayer {
         gradient.endPoint = CGPoint(x: 0.0, y: 0.8)
         return gradient
     }
+}
+
+extension UIImage {
+    func scaleImage(targetSize: CGSize) -> UIImage {
+        let widthRatio = targetSize.width / self.size.width
+        let heightRatio = targetSize.height / self.size.height
+
+        var newSize: CGSize
+        if widthRatio > heightRatio {
+            newSize = CGSize(width: self.size.width * heightRatio, height: self.size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: self.size.width * widthRatio, height: self.size.height * widthRatio)
+        }
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: CGRect(origin: .zero, size: newSize))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        guard let scaledImage = newImage else {
+            return UIImage(named: "questionmark")!
+        }
+
+        return scaledImage
+    }
+
 }

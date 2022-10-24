@@ -9,43 +9,58 @@
 /* Begin PBXBuildFile section */
 		7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */; };
 		7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */; };
-		7E52E8B728F79D7D004598C4 /* IndividualChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8B528F79D7D004598C4 /* IndividualChallenge.xcdatamodeld */; };
 		7E52E8B928F79D7F004598C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8B828F79D7F004598C4 /* Assets.xcassets */; };
 		7E52E8BC28F79D7F004598C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */; };
 		7E52E8C828F84472004598C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8C728F84472004598C4 /* Extensions.swift */; };
 		7E52E8CC28F84842004598C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8CB28F84842004598C4 /* TabBarViewController.swift */; };
-		7E52E8CF28F854E9004598C4 /* Psychonauts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8CE28F854E9004598C4 /* Psychonauts.swift */; };
 		7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D028F855D7004598C4 /* SearchViewController.swift */; };
-		7E52E8D328F855ED004598C4 /* DigimonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */; };
+		7E52E8D328F855ED004598C4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D228F855ED004598C4 /* CollectionViewController.swift */; };
 		7E52E8D528F85629004598C4 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8D428F85629004598C4 /* APICaller.swift */; };
-		7E52E8DC28F977AC004598C4 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */; };
-		7E52E8E128FB411C004598C4 /* DigimonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E028FB411C004598C4 /* DigimonModel.swift */; };
+		7E52E8E128FB411C004598C4 /* Digimon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E028FB411C004598C4 /* Digimon.swift */; };
 		7E52E8E328FB65CC004598C4 /* DigimonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */; };
 		7E52E8E528FB66B1004598C4 /* PageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E428FB66B1004598C4 /* PageContent.swift */; };
 		7E52E8E728FBA20D004598C4 /* DigimonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */; };
 		7E52E8E928FBC18F004598C4 /* DigimonCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */; };
+		7E52E93329001596004598C4 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93229001596004598C4 /* CollectionView.swift */; };
+		7E52E93529001638004598C4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93429001638004598C4 /* CollectionViewCell.swift */; };
+		7E52E938290019ED004598C4 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E937290019ED004598C4 /* List.swift */; };
+		7E52E93A29001AC3004598C4 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93929001AC3004598C4 /* ListViewModel.swift */; };
+		7E52E94029010BA9004598C4 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93F29010BA9004598C4 /* TableView.swift */; };
+		7E52E944290119C4004598C4 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E943290119C4004598C4 /* InfoCell.swift */; };
+		7E52E94629011E4A004598C4 /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94529011E4A004598C4 /* MockModel.swift */; };
+		7E52E94829015B52004598C4 /* THISONEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94729015B52004598C4 /* THISONEViewController.swift */; };
+		7E52E94B290172A2004598C4 /* IndividualChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */; };
+		7E52E9502905E1C3004598C4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E94F2905E1C3004598C4 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E52E8A928F79D7D004598C4 /* IndividualChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndividualChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7E52E8B628F79D7D004598C4 /* IndividualChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IndividualChallenge.xcdatamodel; sourceTree = "<group>"; };
 		7E52E8B828F79D7F004598C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E52E8BB28F79D7F004598C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E52E8BD28F79D7F004598C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E52E8C728F84472004598C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7E52E8CB28F84842004598C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		7E52E8CE28F854E9004598C4 /* Psychonauts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Psychonauts.swift; sourceTree = "<group>"; };
 		7E52E8D028F855D7004598C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonListViewController.swift; sourceTree = "<group>"; };
+		7E52E8D228F855ED004598C4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		7E52E8D428F85629004598C4 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
-		7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		7E52E8E028FB411C004598C4 /* DigimonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonModel.swift; sourceTree = "<group>"; };
+		7E52E8E028FB411C004598C4 /* Digimon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digimon.swift; sourceTree = "<group>"; };
 		7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCardView.swift; sourceTree = "<group>"; };
 		7E52E8E428FB66B1004598C4 /* PageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContent.swift; sourceTree = "<group>"; };
 		7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonViewModel.swift; sourceTree = "<group>"; };
 		7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCardViewController.swift; sourceTree = "<group>"; };
+		7E52E93229001596004598C4 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		7E52E93429001638004598C4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7E52E937290019ED004598C4 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		7E52E93929001AC3004598C4 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		7E52E93F29010BA9004598C4 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		7E52E943290119C4004598C4 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		7E52E94529011E4A004598C4 /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
+		7E52E94729015B52004598C4 /* THISONEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THISONEViewController.swift; sourceTree = "<group>"; };
+		7E52E94A290172A2004598C4 /* IndividualChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IndividualChallenge.xcdatamodel; sourceTree = "<group>"; };
+		7E52E94F2905E1C3004598C4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7E52E9512906C0C8004598C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +103,8 @@
 				7E52E8B828F79D7F004598C4 /* Assets.xcassets */,
 				7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */,
 				7E52E8BD28F79D7F004598C4 /* Info.plist */,
-				7E52E8B528F79D7D004598C4 /* IndividualChallenge.xcdatamodeld */,
+				7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */,
+				7E52E9512906C0C8004598C4 /* README.md */,
 			);
 			path = IndividualChallenge;
 			sourceTree = "<group>";
@@ -96,9 +112,10 @@
 		7E52E8C328F84423004598C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7E52E8CE28F854E9004598C4 /* Psychonauts.swift */,
-				7E52E8E028FB411C004598C4 /* DigimonModel.swift */,
+				7E52E8E028FB411C004598C4 /* Digimon.swift */,
 				7E52E8E428FB66B1004598C4 /* PageContent.swift */,
+				7E52E937290019ED004598C4 /* List.swift */,
+				7E52E94529011E4A004598C4 /* MockModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */,
+				7E52E93929001AC3004598C4 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -114,6 +132,7 @@
 		7E52E8C528F84437004598C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7E52E94E29020FF0004598C4 /* TableView */,
 				7E52E8C928F8448F004598C4 /* Core */,
 			);
 			path = View;
@@ -132,8 +151,9 @@
 		7E52E8C928F8448F004598C4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */,
-				7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */,
+				7E52E936290019C2004598C4 /* CharacterListCollection */,
+				7E52E94C29020F8F004598C4 /* Search */,
+				7E52E90B28FF3923004598C4 /* Detail */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -150,9 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				7E52E8CB28F84842004598C4 /* TabBarViewController.swift */,
-				7E52E8D028F855D7004598C4 /* SearchViewController.swift */,
-				7E52E8DB28F977AC004598C4 /* FavoriteViewController.swift */,
-				7E52E8D228F855ED004598C4 /* DigimonListViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -162,6 +179,44 @@
 			children = (
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7E52E90B28FF3923004598C4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8E228FB65CC004598C4 /* DigimonCardView.swift */,
+				7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		7E52E936290019C2004598C4 /* CharacterListCollection */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E93229001596004598C4 /* CollectionView.swift */,
+				7E52E93429001638004598C4 /* CollectionViewCell.swift */,
+				7E52E8D228F855ED004598C4 /* CollectionViewController.swift */,
+			);
+			path = CharacterListCollection;
+			sourceTree = "<group>";
+		};
+		7E52E94C29020F8F004598C4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E8D028F855D7004598C4 /* SearchViewController.swift */,
+				7E52E94F2905E1C3004598C4 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7E52E94E29020FF0004598C4 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				7E52E93F29010BA9004598C4 /* TableView.swift */,
+				7E52E943290119C4004598C4 /* InfoCell.swift */,
+				7E52E94729015B52004598C4 /* THISONEViewController.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,18 +313,25 @@
 			files = (
 				7E52E8C828F84472004598C4 /* Extensions.swift in Sources */,
 				7E52E8E328FB65CC004598C4 /* DigimonCardView.swift in Sources */,
-				7E52E8E128FB411C004598C4 /* DigimonModel.swift in Sources */,
-				7E52E8B728F79D7D004598C4 /* IndividualChallenge.xcdatamodeld in Sources */,
+				7E52E8E128FB411C004598C4 /* Digimon.swift in Sources */,
+				7E52E93A29001AC3004598C4 /* ListViewModel.swift in Sources */,
+				7E52E94629011E4A004598C4 /* MockModel.swift in Sources */,
+				7E52E93529001638004598C4 /* CollectionViewCell.swift in Sources */,
 				7E52E8E528FB66B1004598C4 /* PageContent.swift in Sources */,
 				7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */,
+				7E52E94B290172A2004598C4 /* IndividualChallenge.xcdatamodeld in Sources */,
+				7E52E93329001596004598C4 /* CollectionView.swift in Sources */,
+				7E52E9502905E1C3004598C4 /* SearchView.swift in Sources */,
+				7E52E94029010BA9004598C4 /* TableView.swift in Sources */,
 				7E52E8D528F85629004598C4 /* APICaller.swift in Sources */,
+				7E52E944290119C4004598C4 /* InfoCell.swift in Sources */,
 				7E52E8E928FBC18F004598C4 /* DigimonCardViewController.swift in Sources */,
 				7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */,
-				7E52E8D328F855ED004598C4 /* DigimonListViewController.swift in Sources */,
+				7E52E94829015B52004598C4 /* THISONEViewController.swift in Sources */,
+				7E52E8D328F855ED004598C4 /* CollectionViewController.swift in Sources */,
 				7E52E8E728FBA20D004598C4 /* DigimonViewModel.swift in Sources */,
 				7E52E8CC28F84842004598C4 /* TabBarViewController.swift in Sources */,
-				7E52E8CF28F854E9004598C4 /* Psychonauts.swift in Sources */,
-				7E52E8DC28F977AC004598C4 /* FavoriteViewController.swift in Sources */,
+				7E52E938290019ED004598C4 /* List.swift in Sources */,
 				7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,12 +542,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7E52E8B528F79D7D004598C4 /* IndividualChallenge.xcdatamodeld */ = {
+		7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7E52E8B628F79D7D004598C4 /* IndividualChallenge.xcdatamodel */,
+				7E52E94A290172A2004598C4 /* IndividualChallenge.xcdatamodel */,
 			);
-			currentVersion = 7E52E8B628F79D7D004598C4 /* IndividualChallenge.xcdatamodel */;
+			currentVersion = 7E52E94A290172A2004598C4 /* IndividualChallenge.xcdatamodel */;
 			path = IndividualChallenge.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
