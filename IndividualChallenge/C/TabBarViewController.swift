@@ -51,6 +51,7 @@ class TabBarViewController: UITabBarController {
 
         vc1.delegate = vc3
     }
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
         }

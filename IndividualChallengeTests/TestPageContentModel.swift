@@ -19,6 +19,7 @@ final class TestPageContentModel: XCTestCase {
         nextPage: "nextPage")
 
     let sutContentElement = ContentElement(id: 1, name: "text", href: "https")
+
     func testPageable() throws {
 
         let currentPage = sutPageable.currentPage
@@ -50,8 +51,10 @@ final class TestPageContentModel: XCTestCase {
     func testPageInfo() throws {
         let sutPageInfo = PageInfo(content: [sutContentElement], pageable: sutPageable)
 
-        let test = sutPageInfo.content
-        let testt = sutPageInfo.pageable
+        let testContent = sutPageInfo.content
+        let testPageable = sutPageInfo.pageable
 
+//        XCTAssertEqual(testContent, [sutContentElement])
+//        XCTAssertEqual(testPageable, sutPageable)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1948FC2914882F0098340D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1948FB2914882F0098340D /* SearchViewModel.swift */; };
+		7E4E05D32909FA5C00D5742F /* TestDigimonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05D22909FA5C00D5742F /* TestDigimonModel.swift */; };
 		7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */; };
 		7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */; };
 		7E52E8B928F79D7F004598C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E52E8B828F79D7F004598C4 /* Assets.xcassets */; };
@@ -23,7 +25,6 @@
 		7E52E8E928FBC18F004598C4 /* DigimonCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */; };
 		7E52E93329001596004598C4 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93229001596004598C4 /* CollectionView.swift */; };
 		7E52E93529001638004598C4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93429001638004598C4 /* CollectionViewCell.swift */; };
-		7E52E938290019ED004598C4 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E937290019ED004598C4 /* List.swift */; };
 		7E52E93A29001AC3004598C4 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93929001AC3004598C4 /* ListViewModel.swift */; };
 		7E52E94029010BA9004598C4 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E93F29010BA9004598C4 /* TableView.swift */; };
 		7E52E944290119C4004598C4 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E943290119C4004598C4 /* InfoCell.swift */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E1948FB2914882F0098340D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7E4E05D22909FA5C00D5742F /* TestDigimonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDigimonModel.swift; sourceTree = "<group>"; };
 		7E52E8A928F79D7D004598C4 /* IndividualChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndividualChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		7E52E8E828FBC18F004598C4 /* DigimonCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigimonCardViewController.swift; sourceTree = "<group>"; };
 		7E52E93229001596004598C4 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		7E52E93429001638004598C4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		7E52E937290019ED004598C4 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		7E52E93929001AC3004598C4 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		7E52E93F29010BA9004598C4 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		7E52E943290119C4004598C4 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				7E52E8AB28F79D7D004598C4 /* IndividualChallenge */,
+				7E52E9512906C0C8004598C4 /* README.md */,
 				7E52E95729071FA6004598C4 /* IndividualChallengeTests */,
 				7E52E8AA28F79D7D004598C4 /* Products */,
 			);
@@ -120,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				7E52E8C628F84454004598C4 /* Resources */,
-				7E52E8D828F8A2C0004598C4 /* Protocol */,
 				7E52E8CA28F8449B004598C4 /* Managers */,
 				7E52E8C328F84423004598C4 /* Model */,
 				7E52E8C528F84437004598C4 /* View */,
@@ -130,7 +132,6 @@
 				7E52E8BA28F79D7F004598C4 /* LaunchScreen.storyboard */,
 				7E52E8BD28F79D7F004598C4 /* Info.plist */,
 				7E52E949290172A2004598C4 /* IndividualChallenge.xcdatamodeld */,
-				7E52E9512906C0C8004598C4 /* README.md */,
 			);
 			path = IndividualChallenge;
 			sourceTree = "<group>";
@@ -140,7 +141,6 @@
 			children = (
 				7E52E8E028FB411C004598C4 /* Digimon.swift */,
 				7E52E8E428FB66B1004598C4 /* PageContent.swift */,
-				7E52E937290019ED004598C4 /* List.swift */,
 				7E52E94529011E4A004598C4 /* MockModel.swift */,
 			);
 			path = Model;
@@ -151,6 +151,7 @@
 			children = (
 				7E52E8E628FBA20D004598C4 /* DigimonViewModel.swift */,
 				7E52E93929001AC3004598C4 /* ListViewModel.swift */,
+				7E1948FB2914882F0098340D /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -200,13 +201,6 @@
 			path = C;
 			sourceTree = "<group>";
 		};
-		7E52E8D828F8A2C0004598C4 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		7E52E90B28FF3923004598C4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				7E52E95829071FA6004598C4 /* IndividualChallengeTests.swift */,
+				7E4E05D22909FA5C00D5742F /* TestDigimonModel.swift */,
 				7E52E95F290722D4004598C4 /* TestPageContentModel.swift */,
 				7E52E96129072719004598C4 /* TestDigimonCardView.swift */,
 			);
@@ -377,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1948FC2914882F0098340D /* SearchViewModel.swift in Sources */,
 				7E52E8C828F84472004598C4 /* Extensions.swift in Sources */,
 				7E52E8E328FB65CC004598C4 /* DigimonCardView.swift in Sources */,
 				7E52E8E128FB411C004598C4 /* Digimon.swift in Sources */,
@@ -397,7 +393,6 @@
 				7E52E8D328F855ED004598C4 /* CollectionViewController.swift in Sources */,
 				7E52E8E728FBA20D004598C4 /* DigimonViewModel.swift in Sources */,
 				7E52E8CC28F84842004598C4 /* TabBarViewController.swift in Sources */,
-				7E52E938290019ED004598C4 /* List.swift in Sources */,
 				7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E52E960290722D4004598C4 /* TestPageContentModel.swift in Sources */,
+				7E4E05D32909FA5C00D5742F /* TestDigimonModel.swift in Sources */,
 				7E52E95929071FA6004598C4 /* IndividualChallengeTests.swift in Sources */,
 				7E52E96229072719004598C4 /* TestDigimonCardView.swift in Sources */,
 			);

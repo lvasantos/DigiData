@@ -56,6 +56,7 @@ class CollectionView: UIView {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         addSubview(charLabel)
         addSubview(favoriteLabel)
         addSubview(charlistView)

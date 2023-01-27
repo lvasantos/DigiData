@@ -9,7 +9,6 @@
 
 import Foundation
 
-
 class DigimonViewModel {
     let API = APICaller()
     // MARK: Pageable
@@ -37,7 +36,6 @@ class DigimonViewModel {
                 let (previousPageData, _) = try await URLSession.shared.data(
                     from: URL(string: previousPage)!)
                 let decodedData = JSONDecoder().decodePage(pageData: previousPageData)
-                //                print(decodedData)
                 return decodedData
             }
         } catch {
@@ -155,7 +153,7 @@ class DigimonViewModel {
             decodedData.descriptions.forEach { element in
                 if element.language == "en_us"{
                     descriptionInfo = element.digiDescription
-                    //Por motivos de n sei ele n entrava so com o isEmpty
+                    // Por motivos de n sei ele n entrava so com o isEmpty
                 } else if element.digiDescription.isEmpty ||
                             element.digiDescription == ""   ||
                             element.digiDescription == " "  ||

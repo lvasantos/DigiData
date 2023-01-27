@@ -63,10 +63,11 @@ class DigimonCardView: UIView {
     let digimonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "digimon_noImage")
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = .clear
         imageView.tintColor = .systemPink
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -203,7 +204,6 @@ class DigimonCardView: UIView {
 
     // MARK: funções
     func configFlipCard() {
-        // n precisa testar
         flipCard.addSubview(label2Stack)
         flipCard.addSubview(labelStack)
         flipCard.addSubview(digimonImage)
@@ -215,7 +215,6 @@ class DigimonCardView: UIView {
     }
 
     func configLabels() {
-        // n precisa testar
         labelStack.addArrangedSubview(typeLabel)
         labelStack.addArrangedSubview(levelLabel)
         label2Stack.addArrangedSubview(attibuteLabel)
@@ -223,7 +222,6 @@ class DigimonCardView: UIView {
     }
 
     func configCardHeight() {
-        // n precisa testar
         self.flipCard.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.675).isActive = true
     }
 
@@ -263,7 +261,6 @@ class DigimonCardView: UIView {
             self.descriptionText.bottomAnchor.constraint(equalTo: cardView.bottomAnchor)
         ])
     }
-
     // n testar
     @objc func changeText() {
         delegate?.changeViewContent()
@@ -282,23 +279,6 @@ class DigimonCardView: UIView {
             delegate?.favoriteChecked()
         } else {
             delegate?.favoriteUnchecked()
-        }
-    }
-}
-
-// MARK: extensions
-// Teste de rota tudo mockado
-extension UIImageView {
-    func load(URL: URL) async {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: URL)
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-            }
-        } catch {
-            print(error)
         }
     }
 }

@@ -92,6 +92,7 @@ extension DigimonCardViewController: DigimonCardViewDelegate {
             self.digimonView.flip = !self.digimonView.flip
         })
     }
+    
 
     func flipToFrontView(options: UIView.AnimationOptions) {
         UIView.transition(with: self.digimonView.flipCard, duration: 0.3,

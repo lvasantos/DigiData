@@ -5,7 +5,7 @@
 //  Created by Luciana Adrião on 24/10/22.
 //
 
-//1. Testa a model
+// 1. Testa a model
 
 import XCTest
 @testable import IndividualChallenge
