@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E1948FC2914882F0098340D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1948FB2914882F0098340D /* SearchViewModel.swift */; };
+		7E49488429861C79009FD229 /* SetViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49488329861C79009FD229 /* SetViewProtocol.swift */; };
 		7E4E05D32909FA5C00D5742F /* TestDigimonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E05D22909FA5C00D5742F /* TestDigimonModel.swift */; };
 		7E52E8AD28F79D7D004598C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */; };
 		7E52E8AF28F79D7D004598C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52E8AE28F79D7D004598C4 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		7E1948FB2914882F0098340D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7E49488329861C79009FD229 /* SetViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewProtocol.swift; sourceTree = "<group>"; };
 		7E4E05D22909FA5C00D5742F /* TestDigimonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDigimonModel.swift; sourceTree = "<group>"; };
 		7E52E8A928F79D7D004598C4 /* IndividualChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndividualChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E52E8AC28F79D7D004598C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E49488229861C5A009FD229 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E49488329861C79009FD229 /* SetViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		7E52E8A028F79D7D004598C4 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		7E52E8AB28F79D7D004598C4 /* IndividualChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				7E49488229861C5A009FD229 /* Protocols */,
 				7E52E8C628F84454004598C4 /* Resources */,
 				7E52E8CA28F8449B004598C4 /* Managers */,
 				7E52E8C328F84423004598C4 /* Model */,
@@ -380,6 +391,7 @@
 				7E52E94629011E4A004598C4 /* MockModel.swift in Sources */,
 				7E52E93529001638004598C4 /* CollectionViewCell.swift in Sources */,
 				7E52E8E528FB66B1004598C4 /* PageContent.swift in Sources */,
+				7E49488429861C79009FD229 /* SetViewProtocol.swift in Sources */,
 				7E52E8D128F855D7004598C4 /* SearchViewController.swift in Sources */,
 				7E52E94B290172A2004598C4 /* IndividualChallenge.xcdatamodeld in Sources */,
 				7E52E93329001596004598C4 /* CollectionView.swift in Sources */,

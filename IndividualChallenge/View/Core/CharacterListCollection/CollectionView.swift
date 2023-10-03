@@ -54,9 +54,10 @@ class CollectionView: UIView {
         super.layoutSubviews()
         self.backgroundColor = .black
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         addSubview(charLabel)
         addSubview(favoriteLabel)
         addSubview(charlistView)

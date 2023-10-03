@@ -15,6 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+
     let favoriteButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.borderedProminent()
@@ -31,7 +32,6 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
-//                imageView.addSubview(favoriteButton)
     }
 
     required init?(coder: NSCoder) {
