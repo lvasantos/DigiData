@@ -80,4 +80,4 @@ This project was conceived and crafted as an individual challenge during my enro
 ## 📬 Contact
 Name: Luciana Adrião  
 Email: lucianaasantos@hotmail.com  
-GitHub: @lvasantos  
+GitHub: - [@lvasantos](https://www.github.com/lvasantos)
