@@ -7,20 +7,46 @@
 
 import UIKit
 
-class SearchView: UISearchController {
+class SearchView: UIView {
+    let searchListView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
 
-    var digimo: DigimonContent?
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        collection.backgroundColor = .clear
+        collection.showsHorizontalScrollIndicator = false
+//        collection.backgroundColor = .blue
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(searchListView)
     }
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
 
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        addGradientWithColor(color: .cyan)
+        configSearchList()
+    }
+
+    func configSearchList() {
+        NSLayoutConstraint.activate([
+                searchListView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                searchListView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                searchListView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                searchListView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+
+    func configListHeight() {
+
+        searchListView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.4).isActive = true
+    }
 }

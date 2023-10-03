@@ -39,8 +39,8 @@ class TabBarViewController: UITabBarController {
                                        tag: 2)
         nav3.tabBarItem = UITabBarItem(title: "Digimon",
                                        image: UIImage(named: "digivice_noBG2")?.scaleImage(targetSize:
-                                                                                           CGSize(width: 40, height: 40)
-                                                                                          ),
+                                                                                           CGSize(width: 40,
+                                                                                                  height: 40)),
                                        tag: 3)
 
         nav1.navigationBar.prefersLargeTitles = true
@@ -51,6 +51,7 @@ class TabBarViewController: UITabBarController {
 
         vc1.delegate = vc3
     }
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
             return .portrait
         }

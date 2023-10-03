@@ -5,7 +5,6 @@ class CollectionViewCell: UICollectionViewCell {
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .darkGray
         imageView.image = UIImage(systemName: "questionmark")?.withTintColor(.white, renderingMode: .alwaysOriginal)
@@ -13,9 +12,10 @@ class CollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 25
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = UIColor.gray.cgColor
-
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+
     let favoriteButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.borderedProminent()
@@ -32,7 +32,6 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
-//                imageView.addSubview(favoriteButton)
     }
 
     required init?(coder: NSCoder) {
@@ -42,7 +41,6 @@ class CollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = contentView.bounds
-//                configButton()
     }
 
     override func prepareForReuse() {
@@ -69,7 +67,6 @@ class CollectionViewCell: UICollectionViewCell {
     private func configButton() {
         let buttonWidth = imageView.frame.size.width*0.2
         let buttonHeight = buttonWidth
-        favoriteButton.layer.cornerRadius = buttonWidth/2
         favoriteButton.frame = CGRect(x: imageView.width-buttonWidth-10,
                                       y: imageView.height-buttonHeight-10,
                                       width: buttonWidth,

@@ -63,10 +63,11 @@ class DigimonCardView: UIView {
     let digimonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "digimon_noImage")
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = .clear
         imageView.tintColor = .systemPink
         imageView.layer.cornerRadius = 40
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -77,7 +78,6 @@ class DigimonCardView: UIView {
         view.axis = .vertical
         view.distribution = .equalSpacing
         view.backgroundColor = .white
-
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: -2.0)
         view.layer.borderWidth = 0.5
@@ -86,7 +86,6 @@ class DigimonCardView: UIView {
         view.layer.shadowRadius = 5.0
         view.layer.backgroundColor = UIColor.clear.cgColor
         view.isUserInteractionEnabled = false
-
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -125,7 +124,6 @@ class DigimonCardView: UIView {
         view.distribution = .fillProportionally
         view.spacing = 5
         view.isHidden = true
-
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -184,27 +182,28 @@ class DigimonCardView: UIView {
     // MARK: overrides, init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        shuffleButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
-        favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        flipCard.addGestureRecognizer(tap)
-        configFlipCard()
-        configLabels()
-    }
-
-    override func didMoveToWindow() {
-        super.didMoveToWindow()
-        addGradientWithColor(color: .purple)
-        setConstraints()
-        configCardHeight()
+        buildLayoutView()
+        setupActionsView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        addGradientWithColor(color: .purple)
+        buildLayoutView()
+    }
+
     // MARK: funções
+    func setupActionsView() {
+        shuffleButton.addTarget(self, action: #selector(changeText), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        flipCard.addGestureRecognizer(tap)
+    }
+
     func configFlipCard() {
         flipCard.addSubview(label2Stack)
         flipCard.addSubview(labelStack)
@@ -227,7 +226,36 @@ class DigimonCardView: UIView {
         self.flipCard.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.675).isActive = true
     }
 
-    func setConstraints() {
+    // n testar
+    @objc func changeText() {
+        delegate?.changeViewContent()
+    }
+    // n testar
+    @objc func tapped() {
+        if flip {
+            delegate?.flipToFrontView(options: .transitionFlipFromRight)
+        } else {
+            delegate?.flipToBackView(options: .transitionFlipFromLeft)
+        }
+    }
+    // n testar
+    @objc func favoriteTapped() {
+        if fave {
+            delegate?.favoriteChecked()
+        } else {
+            delegate?.favoriteUnchecked()
+        }
+    }
+}
+
+extension DigimonCardView: SettingViews {
+    func setupSubviews() {
+        configLabels()
+        configFlipCard()
+        configCardHeight()
+    }
+
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             self.flipCard.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.flipCard.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
@@ -262,41 +290,5 @@ class DigimonCardView: UIView {
             self.descriptionText.topAnchor.constraint(equalTo: flipCard.topAnchor),
             self.descriptionText.bottomAnchor.constraint(equalTo: cardView.bottomAnchor)
         ])
-    }
-
-    @objc func changeText() {
-        delegate?.changeViewContent()
-    }
-
-    @objc func tapped() {
-        if flip {
-            delegate?.flipToFrontView(options: .transitionFlipFromRight)
-        } else {
-            delegate?.flipToBackView(options: .transitionFlipFromLeft)
-        }
-    }
-
-    @objc func favoriteTapped() {
-        if fave {
-            delegate?.favoriteChecked()
-        } else {
-            delegate?.favoriteUnchecked()
-        }
-    }
-}
-
-// MARK: extensions
-extension UIImageView {
-    func load(URL: URL) async {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: URL)
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-            }
-        } catch {
-            print(error)
-        }
     }
 }

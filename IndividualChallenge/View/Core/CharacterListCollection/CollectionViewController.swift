@@ -18,7 +18,7 @@ class CollectionViewController: UIViewController {
     let viewModel: ListViewModel = ListViewModel()
     weak var delegate: CollectionViewControllerDelegate?
 
-    var digiData: [String] = []
+    private var digiData: [String] = []
     var favorites: [String] = ["https://digimon-api.com/api/v1/digimon/Palmon",
                                "https://digimon-api.com/api/v1/digimon/Impmon",
                                "https://digimon-api.com/api/v1/digimon/Lopmon",
@@ -41,7 +41,6 @@ class CollectionViewController: UIViewController {
             DispatchQueue.main.async {
                 self.listOfCollections.charlistView.reloadData()
                 self.listOfCollections.favoriteListView.reloadData()
-
             }
         }
     }
@@ -53,23 +52,26 @@ extension CollectionViewController:
     UICollectionViewDelegate {
 
     // MARK: Character List
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.listOfCollections.charlistView {
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
-                                                          for: indexPath)
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CollectionViewCell.identifier,
+                for: indexPath)
 
             let url = digiData[indexPath.row]
             guard let charCell = cell as? CollectionViewCell else { return UICollectionViewCell() }
             charCell.configure(digiData: url)
-            return cell
+            return charCell
 
         } else if collectionView == self.listOfCollections.favoriteListView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
-                                                          for: indexPath)
-            let url = favorites[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CollectionViewCell.identifier,
+                for: indexPath)
 
+            let url = favorites[indexPath.row]
             guard let favoriteCell = cell as? CollectionViewCell else { return UICollectionViewCell() }
             favoriteCell.configure(digiData: url)
             return favoriteCell
@@ -81,7 +83,6 @@ extension CollectionViewController:
                         numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.listOfCollections.charlistView {
             return digiData.count
-
         } else if collectionView == self.listOfCollections.favoriteListView {
             return favorites.count
         }
@@ -103,7 +104,10 @@ extension CollectionViewController:
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.height * 0.9, height: collectionView.frame.height * 0.9)
+        return CGSize(
+            width: collectionView.frame.height * 0.9,
+            height: collectionView.frame.height * 0.9
+        )
     }
 
     func collectionView(_ collectionView: UICollectionView,
